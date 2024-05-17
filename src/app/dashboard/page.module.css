@@ -32,7 +32,8 @@
 }
 
 .secondNav {
-  padding-left: 7.2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
   margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -66,7 +67,6 @@
   flex-direction: row;
   gap: 1.6rem;
   align-items: center;
-  padding-right: 1rem;
 }
 
 .imageFrame {
@@ -85,7 +85,7 @@
 }
 
 .mainArea {
-  margin-inline: 2rem;
+  margin-inline: 2.5rem;
   margin-top: 2.5rem;
   display: flex;
   flex-direction: row;
@@ -112,7 +112,7 @@
 
 .linkTitle {
   padding-left: .4rem;
-  padding-right: 8rem;
+  padding-right: 4rem;
   font-size: .75rem;
 }
 
