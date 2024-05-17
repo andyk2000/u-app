@@ -55,11 +55,11 @@
 
 .searchInput {
   margin-left: 1px;
+  outline: none;
   height: 20px;
   font-size: 20px;
   border-style: none;
   background: transparent;
-  outline: none,
 }
 
 .notificationSection {
