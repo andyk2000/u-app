@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 import { Icon } from "@iconify/react";
 
 export default function Home() {
@@ -47,7 +48,7 @@ export default function Home() {
           />
         </div>
         <div className={styles.notificationSection}>
-          <Icon icon="ph:bell-light" height={25} width={25}/>
+          <Icon icon="ph:bell-light" width={25} height={25} color="black"/>
           <div className={styles.imageFrame}>
             <Image
               src="/customer-1.png"
@@ -57,6 +58,73 @@ export default function Home() {
               alt="customer Icon"
             />
           </div>
+        </div>
+      </div>
+      <div className={styles.mainArea}>
+        <div className={styles.sideBar}>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard">
+            <Icon icon="ph:square-half-light" width={25} height={25}/>
+            <p className={styles.linkTitle}>Dashboard</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard/organisations">
+            <Icon icon="ph:network" width={25} height={25}/>
+            <p className={styles.linkTitle}>Organisations</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard/merchants">
+            <Icon icon="ph:handbag" width={25} height={25}/>
+            <p className={styles.linkTitle}>Merchants</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard/payments">
+            <Image
+            src="/ico_menu_payments.png"
+            width={25}
+            height={20}
+            className={styles.logoImage}
+            alt="urubuto logo"
+            />
+            <p className={styles.linkTitle}>Payments</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard/usersAccounts">
+            <Icon icon="ph:users-three" width={25} height={25}/>
+            <p className={styles.linkTitle}>Users Accounts</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard/reports">
+            <Icon icon="ph:chart-line-light" width={25} height={25}/>
+            <p className={styles.linkTitle}>Reports</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard/notifications">
+            <Icon icon="ph:notification-fill" width={25} height={25}/>
+            <p className={styles.linkTitle}>Notifications</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/dashboard/settings">
+            <Icon icon="ph:gear" width={25} height={25}/>
+            <p className={styles.linkTitle}>Settings</p>
+          </Link>
+          <Link 
+            className={styles.barComponent}
+            href="/">
+            <Icon icon="ph:sign-out" width={25} height={25}/>
+            <p className={styles.linkTitle}>Log Out</p>
+          </Link>
+        </div>
+        <div className={styles.mainAreaContent}>
+          <p>main area content</p>
         </div>
       </div>
     </main>
