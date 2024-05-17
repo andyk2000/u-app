@@ -32,8 +32,8 @@
 }
 
 .secondNav {
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: 7rem;
+  margin-right: 7rem;
   margin-top: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -54,6 +54,7 @@
 }
 
 .searchInput {
+  padding-left: 1rem;
   outline: none;
   width: 20rem;
   font-size: 1.25rem;
@@ -85,8 +86,8 @@
 }
 
 .mainArea {
-  margin-inline: 2.5rem;
-  margin-top: 2.5rem;
+  margin-inline: 5rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: row;
   color: black;
