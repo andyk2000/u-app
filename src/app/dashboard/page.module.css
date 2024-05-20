@@ -95,7 +95,7 @@
 }
 
 .sideBar {
-  height: 100vh;
+  height: fit-content;
   background-color: #FAFAFA;
   padding-top: 1.25rem;
   padding-bottom: 2.5rem;
