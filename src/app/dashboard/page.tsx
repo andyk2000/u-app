@@ -127,7 +127,26 @@ export default function Home() {
             </Link>
           </div>
           <div className={styles.mainAreaContent}>
-            <p>main area content</p>
+            <div className={styles.mainAreaContainer}>
+              <Image
+                src='/Rectangle.png'
+                height={250}
+                width={1000}
+                className={styles.coverImage}
+                alt="cover image"
+              />
+            <div className={styles.companyInfo}>
+              <Image
+                  src='/company-logo.png'
+                  height={200}
+                  width={200}
+                  className={styles.companyLogo}
+                  alt="cover image"
+              />
+              <p className={styles.companyName}>GoodTaste Restaurant</p>
+              <p className={styles.companyService}>Food & Drinks</p>
+            </div>
+            </div>
           </div>
         </div>
       </div>
