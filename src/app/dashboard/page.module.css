@@ -1,6 +1,5 @@
 .main {
   background-color: #fff;
-  height: 100vh;
 }
 
 .topNav {
@@ -96,12 +95,12 @@
 }
 
 .sideBar {
+  height: 100vh;
   background-color: #FAFAFA;
   padding-top: 1.25rem;
   padding-bottom: 2.5rem;
   padding-inline: 1.25rem;
   border-radius: 1rem;
-  box-shadow: 0 .25rem .3rem rgba(0, 0, 0, 0.1);
 }
 
 .barComponent {
@@ -112,9 +111,9 @@
 }
 
 .linkTitle {
-  padding-left: .4rem;
+  padding-left: 1.2rem;
   padding-right: 4rem;
-  font-size: .75rem;
+  font-size: 1.2rem;
 }
 
 .mainAreaContent {
@@ -150,4 +149,112 @@
   padding-inline: 2rem;
   padding-block: 1rem;
   border-radius: 10px;
+}
+
+.table {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.tableTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bolder;
+  color: #3E61AC;
+  margin-left: 1rem;
+}
+
+.tableTitleLeft {
+  display: flex;
+  font-size: 18px;
+}
+
+.tableTitleRight {
+  display: flex;
+  align-items: center;
+}
+
+.priceTitle {
+  margin-left: 23rem;
+}
+
+.newService {
+  color: #ffff;
+  background: #3E61AC;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-block: .75rem;
+  padding-inline: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.paymentLinks {
+  margin-left: 2rem;
+  background-color: #F2E97F;
+  padding-block: .75rem;
+  padding-inline: 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tableBody {
+  margin-top: 2rem;
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #3E61AC;
+  font-size: 18px;
+  font-weight: bolder;
+  padding-block: 1rem;
+  padding-inline: 1.5rem;
+  margin-bottom: .25rem;
+  background: transparent;
+  border-radius: 10px;
+  background-color: #F9F4BF;
+}
+
+.itemBodyLeft {
+  display: flex;
+}
+
+.itemDescription span{
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.itemPrice {
+  margin-left: 6rem;
+}
+
+.itemBodyRight {
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.itemEdit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.itemView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 1rem;
+  cursor: pointer;
 }
