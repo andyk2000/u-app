@@ -95,13 +95,12 @@
 }
 
 .sideBar {
-  height: fit-content;
+  height: 100vh;
   background-color: #FAFAFA;
   padding-top: 1.25rem;
   padding-bottom: 2.5rem;
   padding-inline: 1.25rem;
   border-radius: 1rem;
-  box-shadow: 0 .25rem .3rem rgba(0, 0, 0, 0.1);
 }
 
 .barComponent {
