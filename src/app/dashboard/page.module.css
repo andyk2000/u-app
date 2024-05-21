@@ -226,7 +226,8 @@
 }
 
 .itemBodyLeft {
-  display: flex;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
 }
 
 .itemDescription span{
@@ -256,5 +257,149 @@
   flex-direction: column;
   align-items: center;
   margin-left: 1rem;
+  cursor: pointer;
+}
+
+.modalTitle {
+  color: #3E61AC;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 30%;
+}
+
+.nameSection {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #3E61AC;
+}
+
+.nameTitle {
+  margin-bottom: .5rem;
+}
+
+.nameInputContainer {
+  border-style: solid;
+  border-color: #B9C6E0;
+  border-width: 1px;
+  border-radius: 10px;
+  width: 25rem;
+  height: 2.5rem;
+  background-color: rgba(184, 197, 224, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.nameInput {
+  outline: none;
+  border-style: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1rem;
+  color: black;
+  margin: .5rem;
+}
+
+.ingredientSection {
+  margin-top: 1rem;
+}
+
+.ingredientTitle {
+  font-size: 1rem;
+  color: #3E61AC;
+  font-weight: bolder;
+  margin-bottom: .75rem;
+}
+
+.ingredientItem {
+  width: 25rem;
+  height: 2.5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #6E98F0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: .5rem;
+}
+
+.ingredient {
+  margin: 1rem;
+  width: 100%;
+  font-size: 18px;
+  color: #3E61AC;
+}
+
+.newIngredientSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newIngredientFieldContainer {
+  width: 80%;
+  height: 2.5rem;
+  background-color: rgba(184, 197, 224, 0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-style: solid;
+  border-color: #B9C6E0;
+  border-width: 1px;
+}
+
+.newIngredientField {
+  background: transparent;
+  border-style: none;
+  outline: none;
+  margin-left: 1rem;
+  font-size: 1rem;
+  color: black;
+}
+
+.addNewIngredientButton {
+  height: 2.5rem;
+  padding-block: .5rem;
+  padding-inline: 1.5rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+  background-color: #3E61AC;
+  cursor: pointer;
+  border-style: none;
+}
+
+.addButton {
+  color: #ffff;
+  background: #3E61AC;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-block: .75rem;
+  padding-inline: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: 200;
+  cursor: pointer;
+  border-style: none;
+  margin-top: .5rem;
+  margin-left: 10rem;
+}
+
+.xContainer {
+  margin-left: 90%;
+  background-color: #fff;
+  border-radius: 50px;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2rem;
+  box-shadow: 1px 1px 3px 1px rgba(75, 75, 75, 0.5);
   cursor: pointer;
 }
