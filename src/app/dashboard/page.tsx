@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import Modal from "react-modal";
 import { SetStateAction, useState } from "react";
+import { Recipe } from "@/interfaces/recipe";
 
 Modal.setAppElement('#modale');
 
@@ -23,13 +24,24 @@ const customStyles = {
 export default function Home() {
 
   const [newIngredient, setNewIngredient] = useState('');
+  const [action, setAction] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [initialForm, setInitialForm] = useState({
+  const [initialForm, setInitialForm] = useState<Recipe>({
     name: '',
     ingredients: [],
-    price: '',
+    price: 0,
   });
   const [formData, setFormData] = useState(initialForm);
+  const [editIndex, setEditIndex] = useState(Number);
+  const [result, setResult] = useState(services);
+
+  const setToCreate = () => {
+    setAction('create');
+  }
+
+  const setToUpdate = () => {
+    setAction('update');
+  }
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -37,6 +49,7 @@ export default function Home() {
 
   const closeModal = () => {
     setModalIsOpen(false);
+    setFormData(initialForm);
   };
 
   const handleNameChange = (e: { target: { value: any; }; }) => {
@@ -62,13 +75,48 @@ export default function Home() {
     }
   }
 
-  const handleSubmit = (e: { preventDefault: () => String; }) => {
+  const removeIngredient = (index: number) => {
+    const updatedIngredients = [...formData.ingredients];
+    updatedIngredients.splice(index, 1);
+    setFormData({
+      ...formData,
+      ingredients: updatedIngredients,
+    });
+  }
+
+  const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
-    services.push(formData);
-    setFormData(initialForm);
+    if(action === 'create'){
+      result.push(formData);
+      setResult(result);
+    } else if(action === 'update'){
+      services[editIndex] = formData;
+      setResult(services);
+      setEditIndex(0);
+    }
     closeModal();
   };
-  
+
+  const createNewRecipe = () => {
+    setAction('create');
+    openModal();
+  }
+
+  const editData = (index: number) => {
+    const service = result[index];
+    setFormData(service);
+    setAction('update');
+    openModal();
+    setEditIndex(index);
+  }
+
+  const deleteData = (index: number) => {
+    const rowDeleted = window.confirm("do you really want to delete this recipe?")
+    if(rowDeleted) {
+      setResult(result.filter((_, i) => i !== index));
+    }
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles.topNav}>
@@ -217,12 +265,12 @@ export default function Home() {
                   <div className={styles.priceTitle}>Price</div>
                 </div>
                 <div className={styles.tableTitleRight}>
-                  <div className={styles.newService} onClick={openModal}><Icon icon="ph:plus-bold" /><p>Add New Recipe</p></div>
+                  <div className={styles.newService} onClick={createNewRecipe}><Icon icon="ph:plus-bold" /><p>Add New Recipe</p></div>
                   <div className={styles.paymentLinks}>Create Payment Link</div>
                 </div>
               </div>
               <div className={styles.tableBody}>
-              {services.map((service, index) => (
+              {result.map((service, index) => (
                   <div className={styles.tableRow} key={index}>
                     <div className={styles.itemBodyLeft}>
                       <div className={styles.itemDescription}>
@@ -231,13 +279,13 @@ export default function Home() {
                       <div className={styles.itemPrice}>{service.price} RWF</div>
                     </div>
                     <div className={styles.itemBodyRight}>
-                      <div className={styles.itemEdit}>
+                      <div className={styles.itemEdit} onClick={() => editData(index)}>
                         <Icon icon="ph:pencil-light" height={22} width={22}/>
                         <p className={styles.editText}>Edit</p>
                       </div>
-                      <div className={styles.itemView}>
-                        <Icon icon="ph:eye-light" height={22} width={22}/>
-                        <p className={styles.viewText}>View</p>
+                      <div className={styles.itemView} onClick={() => deleteData(index)}>
+                      <Icon icon="ph:trash-light" height={22} width={22}/>
+                        <p className={styles.viewText}>Delete</p>
                       </div>
                     </div>
                   </div>
@@ -270,6 +318,9 @@ export default function Home() {
                   {formData.ingredients.map((ingredient, index)=>(
                     <div className={styles.ingredientItem} key={index}>
                       <p className={styles.ingredient}>{ingredient}</p>
+                      <div className={styles.deleteIngredient} onClick={() => removeIngredient(index)}>
+                        <Icon icon="ph:minus" height={20} width={20} color="#3E61AC"/>
+                      </div>
                     </div>
                   ))}
                   <div className={styles.newIngredientSection}>
@@ -279,7 +330,9 @@ export default function Home() {
                     </div>
                     <button className={styles.addNewIngredientButton} onClick={handleAddIngredient}>add</button>
                   </div>
-                  <button className={styles.addButton} onClick={handleSubmit}>create</button>
+                  {action && (
+                    <button className={styles.addButton} onClick={handleSubmit}>{action}</button>
+                  )}
                 </div>
               </div>
             </Modal>
@@ -291,35 +344,35 @@ export default function Home() {
   );
 }
 
-const services = [
+const services: Recipe[]= [
   {
     name: 'cheese burger',
     ingredients: ['cheese','burger','fries'],
-    price: '5000'
+    price: 5000
   },
   {
     name: 'hamme sandwich',
     ingredients: ['hamme','letuce','tomato'],
-    price: '3500'
+    price: 3500
   },
   {
     name: 'double cheese burger',
-    ingredients: ['cheese','steak','latuce','tomato','pickles'],
-    price: '7000'
+    ingredients: ['cheese','steak','letuce','tomato','pickles'],
+    price: 7000
   },
   {
     name: 'chicken wrap',
-    ingredients: ['chiken','tomato','latuce','barbecue sauce'],
-    price: '4500'
+    ingredients: ['chiken','tomato','letuce','barbecue sauce'],
+    price: 4500
   },
   {
     name: 'tacos',
     ingredients: ['cheese','pepper','tomato','barbecue sauce'],
-    price: '6000'
+    price: 6000
   },
   {
     name: 'chicken sandwich',
     ingredients: ['chiken','bread','letuce','tomato'],
-    price: '3000'
+    price: 3000
   },
 ]

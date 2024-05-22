@@ -332,6 +332,26 @@
   color: #3E61AC;
 }
 
+.deleteIngredient {
+  height: fit-content;
+  width: fit-content;
+  background: transparent;
+  border-radius: 50px;
+  border-style: solid;
+  border-color: #3E61AC;
+  border-width: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: .5rem;
+  cursor: pointer;
+}
+
+.deleteIngredient:hover {
+  background-color: rgba(184, 197, 224, 0.5);
+  color: #fff;
+}
+
 .newIngredientSection {
   width: 100%;
   display: flex;
